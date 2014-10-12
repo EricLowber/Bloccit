@@ -9,6 +9,8 @@ gem 'rails', '4.0.10'
    gem 'rails_12factor'
  end
  
+gem 'bootstrap-sass', '~> 3.1.1'
+
  group :development do
    gem 'sqlite3'
  end
