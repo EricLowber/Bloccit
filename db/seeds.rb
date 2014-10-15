@@ -9,7 +9,7 @@ require 'faker'
  end
  posts = Post.all
  
- # Create Comments
+ # Create Comment
  100.times do
    Comment.create!(
      post: posts.sample,
