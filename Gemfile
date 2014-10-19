@@ -46,6 +46,10 @@ end
 #Add the Devise authentication system
 gem 'devise'
 
+
+#Add Figaro for secure configuration
+gem 'figaro','1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
