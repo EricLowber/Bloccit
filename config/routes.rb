@@ -1,9 +1,11 @@
 Bloccit::Application.routes.draw do
   
   devise_for :users
-resources :posts
+  resources :posts
 
   get  'about' => 'welcome#about'
+
+
 
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
