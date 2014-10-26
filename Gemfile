@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
  group :development do
    gem 'sqlite3'
+   gem 'pry'
  end
 
 # Use SCSS for stylesheets
