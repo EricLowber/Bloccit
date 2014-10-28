@@ -54,9 +54,12 @@ gem 'figaro','1.0'
 #Add Pundit to establish authorization rules
 gem 'pundit'
 
+#Add Simple Form to make HTML forms
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+#Use redcarpet for Markdown text formatting
+gem 'redcarpet'
 # Use unicorn as the app server
 # gem 'unicorn'
 
