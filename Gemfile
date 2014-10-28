@@ -60,6 +60,15 @@ gem 'simple_form'
 # gem 'bcrypt', '~> 3.1.7'
 #Use redcarpet for Markdown text formatting
 gem 'redcarpet'
+
+#add Carrierwave and Mini-magick for uploading files
+gem 'carrierwave'
+
+gem 'mini_magick', '~> 3.5.0'
+
+#add Fog to support S3.
+gem 'fog'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
