@@ -69,6 +69,10 @@ gem 'mini_magick', '~> 3.5.0'
 #add Fog to support S3.
 gem 'fog'
 
+#add will_paginate
+gem 'will_paginate', '~> 3.0.5'
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
