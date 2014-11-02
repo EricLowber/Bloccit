@@ -14,7 +14,9 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %> 
       <% end %> 
+     <% if policy(@comment).edit? %>
      <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+     <% end %>
      <%= render partial: 'comments/comment', locals: { post: @post, comment: @comment } %> 
-    </div>
   </div>
+</div>
