@@ -2,17 +2,19 @@
 
 <div class="row">  
 <%= image_tag(@post.image.thumb.url) if @post.image? %> 
-  <div class=col-md-8">
+  <div class= "media">
     <small>
     <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
     submitted <%= time_ago_in_words(@post.created_at) %> ago by
-    <%= @post.user.name %>
-   </small>
-    <p><%= markdown @post.body %></p>
-  </div>
+    <%= @post.user.name %> 
+    <p><%= @post.body %></p>
+    </small>
+   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %> 
       <% end %> 
+     <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+     <%= render partial: 'comments/comment', locals: { post: @post, comment: @comment } %> 
     </div>
   </div>

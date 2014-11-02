@@ -1,0 +1,7 @@
+<%= form_for [post, comment] do |f| %>
+  <p><% @comments.each do |comment| %></p>
+  <small>
+  <p><%= comment.body %></p>
+  </small>
+  <% end %> 
+<% end %>

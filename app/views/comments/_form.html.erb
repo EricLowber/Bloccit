@@ -1,0 +1,9 @@
+ 
+<%= form_for [post, comment] do |f| %> 
+  <%= form_group_tag(comment.errors[:body]) do%>
+  <%= f.label :body %> 
+  <%= f.text_area :body, rows: 1, class: 'form-control' %>
+  <% end %>
+  <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %> 
+
