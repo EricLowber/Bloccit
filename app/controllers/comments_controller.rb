@@ -16,21 +16,22 @@ def create
   end
 
   def destroy
-    @topic = Topic.find(params[:post_id])
-    @post = @topic.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     authorize @comment
 
     if @comment.destroy
-      flash[:notice] = "Comment was deleted"
-      redirect_to [@topic, @post]
+      flash[:notice] = "Comment was removed."
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
-      redirect_to [@topic, @post]
-end
+      redirect_to [@post.topic, @post]
+    end
+   end
 
-private
+  private
 
-def params_comment
-  params.require(:comment).permit(:body)
+  def params_comment
+    params.require(:comment).permit(:body)
+  end
 end
