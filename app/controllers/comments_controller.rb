@@ -8,10 +8,10 @@ def create
   
    if @comment.save
      flash[:notice] = "Comment was created"
-     redirect_to [@topic, @post]
+     redirect_to [@post.topic, @post]
    else 
      flash[:error] = "Comment failed to save"
-     redirect_to [@topic, @post]
+     redirect_to [@post.topic, @post]
    end
   end
 
@@ -21,11 +21,11 @@ def create
     authorize @comment
 
     if @comment.destroy
-      flash[:notice] = "Comment was deleted."
-      redirect_to [@topic, @post]
+      flash[:notice] = "Comment was removed."
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "Comment couldn't be deleted. Try again."
-      redirect_to [@topic, @post]
+      redirect_to [@post.topic, @post]
     end
    end
 
