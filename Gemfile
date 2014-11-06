@@ -72,6 +72,10 @@ gem 'fog'
 #add will_paginate
 gem 'will_paginate', '~> 3.0.5'
 
+#add rspec
+group :test do 
+  gem 'rspec-rails', '~> 3.1.0'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
