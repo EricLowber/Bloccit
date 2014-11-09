@@ -1,10 +1,7 @@
 class CommentPolicy < ApplicationPolicy
-  def create 
-    user.present?
-  end
-
+  
   def edit
-    user.present?
+   update?
   end
 
   def destroy

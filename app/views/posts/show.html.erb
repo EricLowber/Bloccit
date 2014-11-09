@@ -34,7 +34,7 @@
        <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
        <% end %>
        <%= render partial: 'comments/comment', collection: @comments  %> 
+       <%= render partial: 'favorites/favorite', locals: { post: @post } %>
   </div>
 </div>
-
-
+  

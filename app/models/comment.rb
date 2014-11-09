@@ -7,6 +7,16 @@ class Comment < ActiveRecord::Base
   def markdown_body
     render_as_markdown body
   end
+
+  after_create :send_favorite_emails
+ 
+  private
+ 
+  def send_favorite_emails
+    post.favorites.each do |favorite|
+      FavoriteMailer.new_comment(favorite.user, post, self).deliver
+    end
+  end
 end
 
 
@@ -18,3 +28,4 @@ def render_as_markdown(text)
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
     (redcarpet.render text).html_safe
 end
+
