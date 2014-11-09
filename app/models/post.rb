@@ -9,11 +9,11 @@ class Post < ActiveRecord::Base
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
-  # validates :topic, presence: true
-  # validates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
   mount_uploader :image, ImageUploader
-  after_create :create_vote
+ 
 
   def markdown_title
     render_as_markdown title
@@ -35,6 +35,9 @@ class Post < ActiveRecord::Base
     votes.sum(:value)
   end
 
+  def create_vote
+    user.votes.create(value: 1, post: self)
+  end
 
   def update_rank
     age = (created_at - Time.new(1970,1,1)) / (60 * 60 *24) 
@@ -45,11 +48,6 @@ class Post < ActiveRecord::Base
 end
 
 private
-
-def create_vote
-  user.votes.create(value: 1, post: self)
-end
-
 
 def render_as_markdown(text)
     renderer = Redcarpet::Render::HTML.new

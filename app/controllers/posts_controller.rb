@@ -20,7 +20,8 @@ class PostsController < ApplicationController
      @post.topic = @topic
      authorize @post
       if @post.save
-       flash[:notice] = "Post was saved."
+         @post.create_vote
+        flash[:notice] = "Post was saved."
         redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Post was updated."
       redirect_to [@topic, @post]
     else
-      flash[:error] = "There ws an error saving the post. Please try again."
+      flash[:error] = "There was an error saving the post. Please try again."
       render :edit
     end
   end
