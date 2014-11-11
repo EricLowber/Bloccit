@@ -17,7 +17,5 @@ def associated_post(options={})
     user.skip_confirmation!
     user.save
     user
-  end
-
-  
+  end  
 end
