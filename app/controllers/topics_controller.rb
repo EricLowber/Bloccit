@@ -13,6 +13,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
     authorize @topic
+
+    puts 'hello'
   end
 
   def edit
