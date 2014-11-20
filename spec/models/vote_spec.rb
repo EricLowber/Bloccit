@@ -28,5 +28,16 @@ describe Vote do
   end  
  end
 
+ def associated_post
+   user = authenticated_user
+   topic = Topic.create(name: 'Topic name')
+   Post.create(title: 'Post title', body: 'Post bodies must be pretty long', topic: topic, user: user)
+ end
 
+ def authenticated_user
+     user = User.new(email: "email#{rand}@fake.com", password: 'password')
+     user.skip_confirmation!
+     user.save
+     user
+ end
    
