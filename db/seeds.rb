@@ -11,9 +11,7 @@ require 'faker'
   user.save!
 end
 users = User.all
-
-# Create Topics
-15.times do
+G
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph

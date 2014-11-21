@@ -3,7 +3,6 @@
  describe Topic do
   describe "scopes" do
   
-
     before do
       @public_topic = Topic.create
       @private_topic = Topic.create(public: false)

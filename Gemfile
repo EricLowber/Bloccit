@@ -16,6 +16,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
    gem 'pry'
  end
 
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -75,9 +77,9 @@ gem 'will_paginate', '~> 3.0.5'
 #add rspec
 group :test do 
   gem 'rspec-rails', '~> 3.1.0'
-
   gem 'capybara', '~> 2.4.4'
-  
+  gem 'database_cleaner'
+   gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Use unicorn as the app server

@@ -2,20 +2,17 @@
 require 'rails_helper'
  
  describe FavoritesController do
- 
-   include TestFactories
    include Devise::TestHelpers
  
    before do 
-     @post = associated_post
-     @user = authenticated_user
-     sign_in @user
+    @user = create(:user)
+    @post = create(:post)
+    sign_in @user
    end
  
    describe '#create' do
      it "creates a favorite for the current user and specified post" do
-       expect( @user.favorites.find_by_post_id(@post.id) ).to be_nil
- 
+       expect( @user.favorites.find_by_post_id(@post.id) ).to be_nil          
        post :create, { post_id: @post.id }
  
        expect( @user.favorites.find_by_post_id(@post.id) ).not_to be_nil
@@ -33,3 +30,4 @@ require 'rails_helper'
      end
    end
  end
+
