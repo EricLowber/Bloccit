@@ -77,12 +77,6 @@ end
  member.skip_confirmation!
  member.save!
 
- #create another member
- User.first.update_attributes!(
-  email: 'elowber@gmail.com',
-  password: 'MartinD35',
-  )
-
 
 puts "Seed finished"
 puts "#{User.count} users created"
