@@ -1,8 +1,11 @@
-<%= form_for [post, comment] do |f| %> 
-  <div class =  <%= form_group_tag(comment.errors[:body])%>> 
-  <%= f.label :body %> 
-  <%= f.text_area :body, rows: 1, class: 'form-control' %>
-  </div>
-  <%= f.submit "Save", class: 'btn btn-success' %>
-<% end %> 
+<% if current_user %>
+  <h4>Add a comment:</h4> 
+  <%= form_for [@post, @post.comments.build], remote: true do |f| %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+
 

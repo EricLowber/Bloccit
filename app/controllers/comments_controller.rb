@@ -1,21 +1,27 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
-
-def create  
-   @post =  Post.find(params[:post_id])
-   @comment = current_user.comments.new(params_comment)
-   @comment.post = @post
-   authorize @comment
   
-   if @comment.save
-     flash[:notice] = "Comment was created"
-     redirect_to [@post.topic, @post]
-   else 
-     flash[:error] = "Comment failed to save"
-     redirect_to [@post.topic, @post]
-   end
+  def create
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+
+    @comment = current_user.comments.build( comment_params )
+    @comment.post = @post
+
+    authorize @comment
+
+    if @comment.save
+      flash[:notice] = "Comment was created."
+    else
+      flash[:error] = "There was an error saving the comment. Please try again."
+    end
+
+    respond_with(@comment) do |format|
+      format.html { redirect_to [@post.topic, @post] }
+    end
   end
 
+  
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
@@ -30,12 +36,13 @@ def create
      respond_with(@comment) do |format|
       format.html { redirect_to [@post.topic, @post] }
      end
-    end
+   end
+  end
+
+
   
   private
 
-  def params_comment
+  def comment_params
     params.require(:comment).permit(:body)
   end
-end
-

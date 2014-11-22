@@ -4,6 +4,8 @@ class Comment < ActiveRecord::Base
   validates :body, length: {minimum: 5}, presence: true
   validates :user, presence: true
 
+  # default_scope { order('updated_at DESC') }
+
   def markdown_body
     render_as_markdown body
   end
