@@ -11,7 +11,8 @@ require 'faker'
   user.save!
 end
 users = User.all
-G
+
+25.times do
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
@@ -79,4 +80,5 @@ end
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
+puts "#{Topic.count} topics created"
 puts "#{Comment.count} comments created"
